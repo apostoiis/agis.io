@@ -69,7 +69,7 @@ Well, to begin with, functional programming also lives in imperative languages. 
 
 Now, since that's out of the way, this is my take on why functional programming isn't so widely used as imperative programming is:
 
-First of all, side-effects can be as much a disadvantage as it can be an advantage. It all depends in the problem we're facing. Truth is, in most real-world problems you want to have side-effects: when a user of your web application clicks on a button to make the purchase, it just makes more sense to alter his current balance state by doing something like `balance -= 50` that to construct a new balance with the new state. You also want to persist his updated balance to the database.
+First of all, side-effects can be as much a disadvantage as it can be an advantage. It all depends in the problem we're facing. Truth is, in most real-world problems you want to have side-effects: when users of your web application click on a button to make the purchase, it just makes more sense to alter their current balance by doing something like `balance -= 50`, than to construct a new balance with the new state. You also want to persist their updated balances to the database.
 
 Also, thinking in a functional manner and reading functional code is a difficult skill and requires quite a mental shift. This is partly due to the the fact that when we learn programming in schools, universities or whatever, we are taught to think in an imperative way and that's because until now the IT industry is mostly dominated by imperative languages (see Java, Ruby, Python) and this may be because there are not such people doing functional programming. The chicken-egg problem. 
 
