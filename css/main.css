@@ -41,7 +41,7 @@ hr {
   border: 0;
   border-top: 1px solid #eee;
   width: 40%;
-  margin: 70px auto;
+  margin: 90px auto;
 }
 
 #post hr { margin: 60px auto; }
@@ -96,6 +96,13 @@ code {
   font-size: 16px;
   padding: 2px 5px;
   margin: 0 2px;
+}
+
+#credits { text-align: center }
+
+.twitter { 
+  display: inline;
+  vertical-align: -3px;
 }
 
 .highlight {

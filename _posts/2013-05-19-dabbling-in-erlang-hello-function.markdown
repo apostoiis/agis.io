@@ -76,15 +76,15 @@ Also, thinking in a functional manner and reading functional code is a difficult
 Last, when big amounts of money are involved, you can't discard the current working system which pays the debts and build a new one if the benefits do not justify this change. "Functional programming is cool" is not a good reason. 
 
 ## So what now?
-I know we've heard this a thousand times but it really boils down to this: *There is no silver-bullet*. It all depends on the problem you're facing. I cannot do anything else at this point but quote [Zed Shaw](http://learnpythonthehardway.org/book/advice.html) at this point:
+I know we've heard this a thousand times but it really boils down to this: *There is no silver-bullet*. It all depends on the problem you're facing. I cannot do anything else than quote [Zed Shaw](http://learnpythonthehardway.org/book/advice.html) at this point:
 
 > What I discovered after this journey of learning is that it's not the languages that matter but what you do with them. Actually, I always knew that, but I'd get distracted by the languages and forget it periodically. Now I never forget it, and neither should you.
 > Which programming language you learn and use doesn't matter. Do not get sucked into the religion surrounding programming languages as that will only blind you to their true purpose of being your tool for doing interesting things. --Zed Shaw
 
-So why not mix and match? Multi-paradigm is the way of the future (is it not the way of the present really?). More and more we see big companies and start-ups to use different technologies, combined to provide the best solutions to the problems they face.
+So why not mix and match? Multi-paradigm for the win. I don't know if functional will ever take over the world but multi-paradigm is already there. 
 
-I'd choose Erlang or another functional language in a problem where concurrency would be important. I'd choose Ruby or an object-oriented language for the main backend of a web application, and implement the chat backend in Erlang, like Facebook did.
+Learning a functional programming language is one of the greatest challenges you can take. You'll train different areas of your brain, you will gain perspective, expand your skills and will become a better programmer.
 
-Finally, I think learning a functional programming language is one of the best challenges you can take as a programmer. It really exercises different areas of your brain and will for sure make you a better programmer.
+In the next post I'll dive into the language and talk about its strong points.
 
-P.S. This is an interesting video to watch: (http://www.youtube.com/watch?v=q0BQMbwzPJw)
+P.S. This is an interesting video to watch on [FP vs OOP](http://www.youtube.com/watch?v=q0BQMbwzPJw).
