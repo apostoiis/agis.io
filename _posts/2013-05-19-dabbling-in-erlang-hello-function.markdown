@@ -9,9 +9,9 @@ Recently I've been dabbling in Erlang and I'm enjoying it a lot. I decided to st
 ## Meet Erlang
 [Erlang](http://en.wikipedia.org/wiki/Erlang_%28programming_language%29) is a functional, concurrent, dynamically-typed language initially developed at Ericsson around 1986 in order to power its telecom infrastructure. 
 
-It is a great fit when scalability, availability and distribution are crucial for your system (surprise, exactly what telecom applications need). This greatness stems from Erlang's concurrency model, its error-handling capabilities, the OTP framework and the fact that it's a functional language.
+It is a great fit when scalability, availability and distribution are crucial (surprise! exactly what telecom applications need). This greatness stems from Erlang's concurrency model, its error-handling capabilities, the OTP framework and the fact that it's a functional language.
 
-But before I dive into the language, I'd like to talk a little about functional programming in general. In fact I've just decided that this will be the subject of this first post of the series.
+Before I dive into the language, I'd like to talk a little about functional programming in general. In fact, I've just decided that this will be the subject of this post.
 
 ## How I stopped worrying about state and loved the function
 Coming to a declarative language like Erlang from an imperative language like Ruby certainly requires a mental switch:
@@ -42,22 +42,22 @@ sum([1, 2, 3, 4]).
 
 See? In the second version there's no mutation at all. We just define a recursive function which gets in some data and spits out some other data, without messing with the outside world at all. That's what functional programming is all about: functions spitting out data, isolated in their little world, not touching a damn in the rest of the world (ie. no side-effects).
 
-But what benefits do this lack of side-effects grants us?
+But what benefits does the absence of side-effects gives us?
 
 ### Programs are easier to reason about 
-Since there are no side-effects, it tends to be easier to reason about functional code. In order to understand what a function does in functional code, you only have to look its code and nothing else. This, most times is not true with imperative programs, where in order to understand what a function does, you may have to look and understand a lot of different pieces in the code and understand all the external dependencies. In functional code there are no external dependencies.
+Since there are no side-effects, it tends to be easier to reason about functional code. In order to understand what a function does in functional code, you only have to read its code and nothing else. This most times is in contrast with imperative programs, where you may have to read code in a lot of different places to have a complete picture of what a function is doing. Functions in functional programming languages have no external dependencies.
 
 ### Easier debugging
-This in turn, leads to programs which are easier to debug, since you can immediately trace the source of bugs that occur. Add single assignment to the mix and debugging becomes a lot simpler. All you have to do is glance at the stack-trace.
+This in turn leads to programs which are easier to debug, since you can immediately trace the source of bugs that occur. Add single assignment to the mix and debugging becomes a lot simpler. All you have to do is glance at the stack-trace.
 
 ### Transparent shift to multicore
-It's well known that parallelizing code where there is shared mutable state is hard. You have to mess with locks and mutexes and then bad things will eventually happen: deadlocks, race-conditions etc. Having immutable state and no shared memory has enormous advantages when you want to make your program run in parallel. All you have to do make your code concurrent -something that Erlang is built for- and the shift to multicore is almost transparent.
+It's well known that parallelizing code where there is shared mutable state is hard. You have to mess with locks and mutexes and then bad things will eventually happen: deadlocks, race-conditions etc. Having immutable state and no shared memory has enormous advantages when you want to make your program run in parallel. All you have to do is structure your code concurrently and then the shift to multicore is transparent.
 
 ### Easy to test
-Since functions are deterministic and the result totally depends on the input and nothing else, it means that if they produce the same answer today, they will produce the same answer tomorrow. Combine this with the fact that there are no external dependencies, and testing becomes a lot easier.
+Since functions are deterministic and the result totally depends on the input and nothing else, it means that if they produce the same answer today, they will produce the same answer tomorrow. Combine this with the fact that there are no external dependencies, and testing becomes a lot easier. Remember what we were taught in school: if `f(5) = 10`, it means f(5) will *always* be 10. It's data-in, data-out. Simple as that.
 
 ## So why hasn'y functional programming taken over yet?
-Really, why we see a lot of C, Java, Ruby, Python and not so much Haskell, F#, Clojure, Erlang etc.? There must be a tradeoff, there always is.
+Really, why we see a lot of C, Java, Ruby, Python and not so much Haskell, F#, Clojure, Erlang? There must be a tradeoff; there always is.
 
 Many people say that functional programming will never dominate the industry like imperative does at the moment, since its advantages do not (at the moment) justify spending the resources for such a big switch.
 
