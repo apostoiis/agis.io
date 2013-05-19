@@ -3,7 +3,6 @@ layout: post
 title: "Validating Paperclip image dimensions in Rails"
 date: 2012-09-14 14:52
 comments: true
-categories: rails, paperclip
 ---
 
 I love using [Paperclip](http://github.com/thoughtbot/paperclip) for handling image uploads in my Rails apps. It's super easy to use and [plays nice with Amazon S3](https://github.com/thoughtbot/paperclip#storage). It even has validators for attachment's content-type, filesize &amp; presence.
