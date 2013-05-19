@@ -7,7 +7,7 @@ date:  2013-05-19
 Recently I've been dabbling in Erlang and I'm enjoying it a lot. I decided to start a series of posts in which I'll address things that I learned until now.
 
 ## Meet Erlang
-[Erlang](http://en.wikipedia.org/wiki/Erlang_%28programming_language%29) is a functional, concurrent, dynamically-typed language built at Ericsson around 1986 in order to power its telecom infrastructure. 
+[Erlang](http://en.wikipedia.org/wiki/Erlang_%28programming_language%29) is a functional, concurrent, dynamically-typed language initially developed at Ericsson around 1986 in order to power its telecom infrastructure. 
 
 It is a great fit when scalability, availability and distribution are crucial for your system (surprise, exactly what telecom applications need). This greatness stems from Erlang's concurrency model, its error-handling capabilities, the OTP framework and the fact that it's a functional language.
 
