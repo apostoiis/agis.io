@@ -18,7 +18,7 @@ Coming to a declarative language like Erlang from an imperative language like Ru
 
 You'll have to stop thinking in terms of mutating the program's state and start thinking in terms of functions and data. Your programs will no more describe *how* something should be done but *what* should be done. You'll have to wave goodbye to your lovely side-effects. There are no things like `a += 1` here.
 
-Where there used to be `for` loops, there is `recursion` instead.
+Where there used to be `for` loops, there is *recursion* instead.
 
 This:
 {% highlight ruby %}
@@ -40,9 +40,11 @@ sum([H|T]) -> H + sum(T).
 sum([1, 2, 3, 4]).
 {% endhighlight %}
 
-See? In the second version there's no mutation at all. We just define a recursive function which gets in some data and spits out some other data, without messing with the outside world at all. That's what functional programming is all about: functions spitting out data, isolated in their little world, not touching a damn in the rest of the world (ie. no side-effects).
+See? In the second version there's no mutation at all. We just define a recursive function which gets in some data and spits out some other data, without messing with the outside world at all.
 
-But what benefits does the absence of side-effects gives us?
+That's what functional programming is all about: functions spitting out data, isolated in their own little world, without touching a damn thing outside of it.
+
+But what benefits does the absence of side-effects grants us?
 
 ### Programs are easier to reason about 
 Since there are no side-effects, it tends to be easier to reason about functional code. In order to understand what a function does in functional code, you only have to read its code and nothing else. This most times is in contrast with imperative programs, where you may have to read code in a lot of different places to have a complete picture of what a function is doing. Functions in functional programming languages have no external dependencies.
