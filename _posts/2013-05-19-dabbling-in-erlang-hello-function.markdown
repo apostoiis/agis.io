@@ -78,10 +78,9 @@ Last, when big amounts of money are involved, you can't discard the current work
 ## So what now?
 I know we've heard this a thousand times but it really boils down to this: *There is no silver-bullet*. It all depends on the problem you're facing. I cannot do anything else than quote [Zed Shaw](http://learnpythonthehardway.org/book/advice.html) at this point:
 
-> What I discovered after this journey of learning is that it's not the languages that matter but what you do with them. Actually, I always knew that, but I'd get distracted by the languages and forget it periodically. Now I never forget it, and neither should you.
-> Which programming language you learn and use doesn't matter. Do not get sucked into the religion surrounding programming languages as that will only blind you to their true purpose of being your tool for doing interesting things. --Zed Shaw
+> Do not get sucked into the religion surrounding programming languages as that will only blind you to their true purpose of being your tool for doing interesting things. --Zed Shaw
 
-So why not mix and match? Multi-paradigm for the win. I don't know if functional will ever take over the world but multi-paradigm is already there. 
+So why not mix and match? The bigger you get, the more problems you have to solve, so the more tools you'll need.
 
 Learning a functional programming language is one of the greatest challenges you can take. You'll train different areas of your brain, you will gain perspective, expand your skills and will become a better programmer.
 
