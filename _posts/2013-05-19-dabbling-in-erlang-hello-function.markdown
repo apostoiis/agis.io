@@ -58,7 +58,7 @@ It's well known that parallelizing code where there is shared mutable state is h
 ### Easy to test
 Since functions are deterministic and the result totally depends on the input and nothing else, it means that if they produce the same answer today, they will produce the same answer tomorrow. Combine this with the fact that there are no external dependencies, and testing becomes a lot easier. Remember what we were taught in school: if `f(5) = 10`, it means f(5) will *always* be 10. It's data-in, data-out. Simple as that.
 
-## So why hasn'y functional programming taken over yet?
+## So why hasn't functional programming taken over yet?
 Really, why we see a lot of C, Java, Ruby, Python and not so much Haskell, F#, Clojure, Erlang? There must be a tradeoff; there always is.
 
 Many people say that functional programming will never dominate the industry like imperative does at the moment, since its advantages do not (at the moment) justify spending the resources for such a big switch.
