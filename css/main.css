@@ -109,6 +109,7 @@ code {
   font-size: 13px;
   padding: 1px 15px;
   background: #efefef;
+  overflow: scroll;
 }
 
 .highlight code { padding-left: 0; margin-left: 0 }
