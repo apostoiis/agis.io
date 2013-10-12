@@ -297,7 +297,7 @@ let's see it in action:
 Note that the order of the definitions is important: each definition is evaluated in order so if we wanted to add a meaningless clause to report back whatever invalid shape we gave, this would not work as expected: 
 
 {% highlight erlang %}
-area(Other) -> {unknown, Other};
+area(Other)            -> {unknown, Other};
 area({circle, Radius}) -> 3.14 * Radius * Radius;
 area({square, Side})   -> Side * Side.
 {% endhighlight %}
@@ -318,7 +318,7 @@ In that case, the first clause would have to be moved at the bottom in order to 
 {% highlight erlang %}
 area({circle, Radius}) -> 3.14 * Radius * Radius;
 area({square, Side})   -> Side * Side;
-area(Other) -> {unknown, Other}.
+area(Other)            -> {unknown, Other}.
 {% endhighlight %}
 
 ## List comprehensions
