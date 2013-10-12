@@ -7,7 +7,7 @@ date: 2013-10-12 15:34
 It's been a while but in the [last post](http://agis.kontext.gr/2013/05/19/dabbling-in-erlang-hello-function.html) we had a short introduction into functional programming in general. Let's actually dive into the basic concepts of the language.
 
 ## Single assignment & pattern matching
-Erlang has single assignment, which means that variables do not really *vary*. If you state that `X` is `5`, then it will always be `5`:
+In Erlang we should think variables in a mathematical sense of the term, which means that *once you've bound a variable, you cannot change its value* . If you state that `X` is `5`, then it will always be `5` (a variable is called *bound* if already contains a value, *unbound* otherwise):
 
 {% highlight erlang %}
 Eshell V5.10.1  (abort with ^G)
@@ -19,11 +19,26 @@ Eshell V5.10.1  (abort with ^G)
 5
 {% endhighlight %}
 
-But this error is not exactly what we expected. In Erlang, the `=` operator mainly does pattern matching, meaning that:
+But this error is not exactly what we expected. In Erlang, the `=` operator does actually pattern matching (there are no LHS/RHS  values). A pattern match is written like this:
 
-* if the LHS variable is unbound (ie. hasn't been set yet) it will assign the RHS to LHS
+{% highlight erlang %}
+Pattern = Expression
+{% endhighlight %}
 
-* if the LHS is bound, it will pattern match the two values (RHS with LHS) and throw an exception if they don't match. If they match, then the actual value is returned.
+The `Pattern` consists of data structures that may contain both bound and unbound variables. The `Expression` part may contain data structures, bound variables, mathematical operations and function calls. If the pattern match succeeds, any unbound variables will be bound and the value of the expression will be returned. Using pattern matching we can extract data of complex data structures:
+
+{% highlight erlang %}
+> {_, Name, Surname} = {person, "Takis", "Doe"}.
+{person,"Takis","Doe"}
+> Name.
+"Takis"
+> Surname.
+"Doe"
+> {_, Name, "bla"} = {person, "Takis", "Doe"}.
+** exception error: no match of right hand side value {person,"Takis","Doe"}
+{% endhighlight %}
+
+We extract the name and surname and bound them to the `Name` and `Surname` variables. The second pattern match of course fails because *"bla"* does not equal to *"Doe"*.
 
 Note that all variable names must begin with a capital letter.
 
@@ -31,11 +46,11 @@ But this isn't the end. Using pattern matching we can control the execution flow
 
 {% highlight ruby %}
 def greet(inc)
-	case inc
-	when "Hello"   then "Hi"
-	when "Goodbye" then "See you"
-	else                inc
-	end
+  case inc
+  when "Hello"   then "Hi"
+  when "Goodbye" then "See you"
+  else                inc
+  end
 end
 
 greet("Hello")   # => "Hi"
@@ -43,15 +58,15 @@ greet("Goodbye") # => "See you"
 greet("blabla")  # => "blabla"
 {% endhighlight %}
 
-Here's a direct transformation in Erlang:
+Here's a direct translation to Erlang:
 
 {% highlight erlang %}
 greet(Inc) ->
-	case Inc of
-		"Hello"   -> "Hi";
-		"Goodbye" -> "See you";
-		_         -> Inc
-	end.
+  case Inc of
+    "Hello"   -> "Hi";
+    "Goodbye" -> "See you";
+    _         -> Inc
+  end.
 {% endhighlight %}
 
 We essentially use the `case` syntax which does pattern matching. But that's not the Erlang way, we can do better: pattern match in the head of the function's clause (the part before the `->` is called the *head* and after it comes the *body*).
@@ -62,17 +77,18 @@ greet("See you") -> "See you";
 greet(Other)     -> Other.
 {% endhighlight %}
 
-A functions is defined as a collection of clauses. Each clause specifies the expected argument patterns and a body of expressions to be evaluated. `greet/1` is still one function but without the use of `case` or `if` statements. The `name/arity` notation is used to describe functions. So `greet/1` means the `greet` function which accepts 1 argument.
+A functions is defined as a collection of clauses. Each clause specifies the expected argument patterns and a body of expressions to be evaluated. `greet/1` is still one function but without the use of `case` or `if` statements. The `name/arity` notation is used to describe functions. So `greet/1` means the `greet` function which accepts 1 argument. It's worth mentioning that the in the compiler meets the different `greet` clauses, it ends up creating a binary search tree, so pattern matching is very efficient.
 
-But it gets better, let's say you want to calculate the area of a shape which could be either a square or a circle. In Ruby we could do it like this:
+
+But it gets better, let's say you want to calculate the area of a shape which could be either a square or a circle. In Ruby we could define *two* different functions:
 
 {% highlight ruby %}
 def area_square(side)
-	side * side
+  side * side
 end
 
 def area_circle(radius)
-	3.14 * radius * radius
+  3.14 * radius * radius
 end
 
 area_square(15) # => 225
@@ -83,11 +99,13 @@ or using a single function we might do:
 
 {% highlight ruby %}
 def area(shape, x)
-	if shape == :square
-		x * x
-	elsif shape == :circle
-		3.14 * x * x
-	end
+  if shape == :square
+    x * x
+  elsif shape == :circle
+    3.14 * x * x
+  else
+    raise "Unknown shape"
+  end
 end
 
 area(:square, 15) # => 225
@@ -104,13 +122,19 @@ area({square, Side})   -> Side * Side.
 and we would use it like this
 
 {% highlight erlang %}
-area({square, 15}). % => 225
-area({circle, 5}).  % => 78.5
+> area({square, 15}).
+225
+> area({circle, 5}).
+78.5
+> area({wtf, 5}).
+** exception error: no function clause matching area({wtf,5})
 {% endhighlight %}
 
-We're using a composite data type called *tuple*. I won't get into details but you will see tuples everywhere in Erlang.
+In the Erlang version, we're defining one function with multiple clauses. We also don't have to explicitly raise an error as we do in the Ruby version, the pattern match will fail so an exception will be raised anyway.
 
-A function is identified by its name and its arity. Two functions with the same name but different arity are two completely different functions that just happen to share the same name. This means could do this:
+Note that we're using a composite data type called *tuple* (that thing inside the curly brackets). I won't get into details but you will see tuples everywhere in Erlang.
+
+It's important to point out that a function is identified by its name and its arity. Two functions with the same name but different arity are two completely different functions that just happen to share the same name. This means could do this:
 
 {% highlight erlang %}
 adder(_)       -> "I'm someone".
@@ -136,9 +160,9 @@ Let's define a function that tells us if the given number is even or odd. Notice
 
 {% highlight erlang %}
 is_what(X) when X rem 2 == 0 ->
-	even;
+  even;
 is_what(X) when X rem 2 /= 0 ->
-	odd.
+  odd.
 {% endhighlight %}
 
 We can use it like this:
@@ -184,13 +208,17 @@ The first element of a List is called the *head* and the rest of the List is cal
 ["Look what I did!",3,4,5]
 {% endhighlight %}
 
-To understand the recursive definition of Lists, we should understand that all the following Lists are semantically equivalent:
+To illustrate the recursive definition of lists, all of the following list notations:
 
 {% highlight erlang %}
 [1,2,3,4]
 [1,2,3,4|[]]
 [1,2|[3,4]]
 [1,2|[3,4|[]]]
+{% endhighlight %}
+
+are simply syntactic sugar for:
+{% highlight erlang %}
 [1|[2|[3|[4|[]]]]]
 {% endhighlight %}
 
@@ -232,7 +260,7 @@ That's neat! Functions are first-class citizens in Erlang and we can manipulate 
 
 {% highlight erlang %}
 times(X) ->
-	fun(Y) -> X*Y end.
+  fun(Y) -> X*Y end.
 {% endhighlight %}
 
 We can now reuse our simple `times` function:
@@ -252,12 +280,12 @@ Another common task is to filter out elements with a particular property, for ex
 
 {% highlight erlang %}
 evens([]) ->
-	[];
+  [];
 evens([H|T]) ->
-	case H rem 2 == 0 of
-		true -> [H | evens(T)];
-		_    -> evens(T)
-	end.
+  case H rem 2 == 0 of
+    true -> [H | evens(T)];
+    _    -> evens(T)
+  end.
 {% endhighlight %}
 
 let's see it in action:
@@ -270,7 +298,7 @@ let's see it in action:
 ## List comprehensions
 It's a very common operation to `map` and `filter` lists. In other words to apply a function to every element of a list and select those elements of a list that have a particular property. *List comprehensions* provides us with a notation to achieve this result in a powerful yet compact way.
 
-The syntax of a list comprehension might be a little confusing at start: `[Expression || Generators, Guards, Generators, ...]`, where generators are `Pattern <- List` pairs, guards are..well, guards and expressions are specifiers of what the result will look like.
+The syntax of a list comprehension might be a little confusing at start and requires some [practice](http://trigonakis.com/blog/2011/04/22/introduction-to-erlang-list-comprehension/) to get used to.
 
 Let's say we want to pick all the even numbers in a list and multiply them by two. List comprehensions to the rescue:
 
@@ -279,7 +307,7 @@ Let's say we want to pick all the even numbers in a list and multiply them by tw
 [4,8]
 {% endhighlight %}
 
-Lists comprehensions are essentially tools to build and modify lists and are based on the idea of [set notations](http://en.wikipedia.org/wiki/Set_notation).
+Lists comprehensions are essentially tools to build and modify lists and are based on the [set-builder notation](http://en.wikipedia.org/wiki/Set-builder_notation).
 
 That's a fairly simple example. Let's try something slightly more advanced by using multiple generators (the part after the `||`):
 
@@ -288,16 +316,16 @@ That's a fairly simple example. Let's try something slightly more advanced by us
 [{2,2},{2,3},{2,4},{4,4}]
 {% endhighlight %}
 
-Here the expression is the tuple `{X, Y}`, then follows the generator `X <- lists:seq(1,4)` which essentially means *X comes from lists:seq(1,4)* (`(lists:seq/2)` is a built-in function that generates a sequence of integers), then follows the guard `X rem 2 == 0` and finally another generator.
+Here the expression is the tuple `{X, Y}`, then follows the generator `X <- lists:seq(1,4)` which essentially means *X comes from lists:seq(1,4)* (`lists:seq/2` is a built-in function that generates a sequence of integers), then follows the guard `X rem 2 == 0` and finally another generator.
 
 So list comprehensions result in more conscise and clear code.
 
 ## That's not all folks
 We've ran into lists, pattern matching, guards, functions and list comprehensions. What we saw until now can be summed up to this:
 
-* *Lists* are the most useful data structures in Erlang. Common operations on them are very efficient, extracting the head or tail of a list and inserting at the beginning of the list are constant-time.
+* *Lists* are the most useful data structures in Erlang. Common operations on them are very efficient, extracting the head or tail of a list and inserting at the beginning of the list are constant-time. The [cons operator](http://dustin.sallings.org/2010/03/04/erlang-conc.html) is the basic tool for manipulating lists.
 
-* *Pattern matching* is a fundamendal characteristic of the language and a very powerful concept that is everywhere in Erlang programs. It results clearer and more readable code (vs `if-else` statements). *Guards* are a great tool that provides additional power to pattern matching.
+* *Pattern matching* is a fundamendal characteristic of the language and a very powerful concept that is everywhere in Erlang programs. It results in [clearer and more readable code](http://existentialtype.wordpress.com/2011/03/15/boolean-blindness/) (vs `if-else` statements). *Guards* are a great tool that provides additional power to pattern matching.
 
 * *Functions* are first-class citizens and are treated like any other data types. You can pass them as arguments, assign them to variables and make them the return values of other functions.
 
