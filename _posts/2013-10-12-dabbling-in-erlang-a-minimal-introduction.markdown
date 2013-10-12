@@ -77,7 +77,7 @@ greet("See you") -> "See you";
 greet(Other)     -> Other.
 {% endhighlight %}
 
-A functions is defined as a collection of clauses. Each clause specifies the expected argument patterns and a body of expressions to be evaluated. `greet/1` is still one function but without the use of `case` or `if` statements. The `name/arity` notation is used to describe functions. So `greet/1` means the `greet` function which accepts 1 argument. It's worth mentioning that the in the compiler meets the different `greet` clauses, it ends up creating a binary search tree, so pattern matching is very efficient.
+A function is defined as a collection of clauses. Each clause specifies the expected argument patterns and a body of expressions to be evaluated. `greet/1` is still one function but without the use of `case` or `if` statements. The `name/arity` notation is used to describe functions. So `greet/1` means the `greet` function which accepts 1 argument. It's worth mentioning that the in the compiler meets the different `greet` clauses, it ends up creating a binary search tree, so pattern matching is very efficient.
 
 
 But it gets better, let's say you want to calculate the area of a shape which could be either a square or a circle. In Ruby we could define *two* different functions:
