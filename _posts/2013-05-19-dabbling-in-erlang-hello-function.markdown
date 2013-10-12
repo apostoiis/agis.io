@@ -4,6 +4,7 @@ title: "Dabbling in Erlang, part 1: Hello function"
 date:  2013-05-19
 ---
 
+
 Recently I've been dabbling in Erlang and I'm enjoying it a lot. I decided to start a series of posts in which I'll address things that I believe are worth mentioning.
 
 ## Meet Erlang
@@ -82,5 +83,11 @@ So why not mix and match? The bigger you get, the more problems you have to solv
 Learning a functional programming language is one of the greatest challenges you can take. You'll train different areas of your brain, you will gain perspective, expand your skills and will become a better programmer.
 
 In the next post I'll dive into the language and talk about its strong points.
+
+------------------
+
+The [second part](/2013/10/12/dabbling-in-erlang-a-minimal-introduction.html) of the series is out.
+
+-------------------
 
 P.S. This is an interesting video to watch on [FP vs OOP](http://www.youtube.com/watch?v=q0BQMbwzPJw).

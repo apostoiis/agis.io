@@ -71,9 +71,9 @@ git commit: "-a -m 'Initial commit (full template used)'"
 
 Pretty self-explanatory, isn't it? The way you use it is with the Rails Generator:
 
-```ruby
+{% highlight ruby %}
 rails new myapplication -m a_template.rb
-```
+{% endhighlight %}
 
 Actually I've created my own repo where I collect my own templates: (https://github.com/Agis-/rails_templates). If you find yourself in the same position I suggest you do the same.
 
