@@ -238,7 +238,6 @@ Our `map` accepts a function as it's first argument (therefore it's a *high-orde
 
 The first definition is our *base case* which when hit, the function will stop recursing and return the actual result. Applying a function to an empty list should of course return an empty list.
 
-Note that the order of the definitions is important: had we moved our base case at the bottom, the recursion would never finish because `map(F, [H|T])` would always match (remember? an empty list is also a list with a head and a tail).
 
 But what should we pass to it? We can pass it a `fun` which will double the passed argument by 2. You can think of `fun`s as anonymous functions, something like blocks in Ruby (well, not quite):
 
@@ -293,6 +292,33 @@ let's see it in action:
 {% highlight erlang %}
 > hi:evens([1,2,3,4,5]).
 [2,4]
+{% endhighlight %}
+
+Note that the order of the definitions is important: each definition is evaluated in order so if we wanted to add a meaningless clause to report back whatever invalid shape we gave, this would not work as expected: 
+
+{% highlight erlang %}
+area(Other) -> {unknown, Other};
+area({circle, Radius}) -> 3.14 * Radius * Radius;
+area({square, Side})   -> Side * Side.
+{% endhighlight %}
+
+since the first clause would always match whatever argument we passed it:
+
+{% highlight erlang %}
+> area({shapeFromSpace, 5}).
+{unknown,{shapeFromSpace,5}}
+> area({circle, 5}).
+{unknown,{circle,5}}
+> area({rectangle, 5}).
+{unknown,{rectangle,5}}
+{% endhighlight %}
+
+In that case, the first clause would have to be moved at the bottom in order to match only unknown tuples:
+
+{% highlight erlang %}
+area({circle, Radius}) -> 3.14 * Radius * Radius;
+area({square, Side})   -> Side * Side;
+area(Other) -> {unknown, Other}.
 {% endhighlight %}
 
 ## List comprehensions
