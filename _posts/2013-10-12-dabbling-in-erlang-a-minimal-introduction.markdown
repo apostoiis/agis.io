@@ -327,7 +327,7 @@ We've ran into lists, pattern matching, guards, functions and list comprehension
 
 * *Pattern matching* is a fundamendal characteristic of the language and a very powerful concept that is everywhere in Erlang programs. It results in [clearer and more readable code](http://existentialtype.wordpress.com/2011/03/15/boolean-blindness/) (vs `if-else` statements). *Guards* are a great tool that provides additional power to pattern matching.
 
-* *Functions* are first-class citizens and are treated like any other data types. You can pass them as arguments, assign them to variables and make them the return values of other functions.
+* *Functions* are first-class citizens and are treated like any other data type. You can pass them as arguments, assign them to variables and make them the return values of other functions.
 
 This was a minimal introduction to some of the basic concepts of Erlang. Next post will be about the concurrency features of the language.
 
