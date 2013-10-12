@@ -329,4 +329,4 @@ We've ran into lists, pattern matching, guards, functions and list comprehension
 
 * *Functions* are first-class citizens and are treated like any other data types. You can pass them as arguments, assign them to variables and make them the return values of other functions.
 
-This was a minimal introduction to some of the basic concepts of Erlang. In the next post I may write about the concurrency and distributed features of the language.
+This was a minimal introduction to some of the basic concepts of Erlang. Next post will be about the concurrency features of the language.
