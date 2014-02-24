@@ -3,16 +3,16 @@ body {
   font-size: 20px;
   margin: 0;
   color: #333;
-  background: white;
+  background: #fff;
 }
+
+p { line-height: 1.5; }
 
 .container {
   max-width: 800px;
   margin: 40px auto;
   padding: 10px;
 }
-
-#intro img { margin: 25px 0 15px 0; }
 
 a {
   color: #477B96;
@@ -25,17 +25,14 @@ a {
   padding: 0;
   line-height: 2;
 }
-
-#posts .post_title { float: left; }
-
-#posts .post_date {
+#posts .title { float: left; }
+#posts .date {
   font-size: 14px;
   text-transform: uppercase;
   float: right;
   color: #999;
 }
-
-#posts ul li { clear: both; }
+#posts li { clear: both; }
 
 hr {
   border: 0;
@@ -44,7 +41,6 @@ hr {
   margin: 85px auto;
 }
 
-#post hr { margin: 60px auto; }
 
 h1, h2 {
   font-family: "Poly", serif;
@@ -68,13 +64,12 @@ footer {
   font-size: 2.5em;
   margin: 20px 0;
 }
-
+#post hr { margin: 60px auto; }
 #post .date {
   color: #999;
   text-align: center;
   font-size: 18px;
 }
-
 #post h2 { margin: 1.7em 0 1.5em 0; }
 
 .back {
@@ -112,7 +107,6 @@ code {
 }
 
 .highlight code { padding-left: 0; margin-left: 0 }
-
 .highlight .c { color: #999988; font-style: italic }
 .highlight .err { color: #a61717; background-color: #e3d2d2 }
 .highlight .k { font-weight: bold }
