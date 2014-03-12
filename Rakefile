@@ -6,11 +6,20 @@ task :build do
   puts '[*] Built files'
 end
 
-desc 'Minify CSS'
-task :minify do
+desc 'Minifies the stylesheets'
+task :minify_css do
   `node_modules/.bin/cleancss -o _deploy/css/main.css _source/css/main.css`
   puts '[*] Minified CSS'
 end
 
 desc 'Builds the static files and minifies the stylesheets'
-task prepare: [:build, :minify]
+task prepare: [:build, :minify_css]
+
+desc 'Deploy the built site'
+task :deploy do
+  system File.read('deploy')
+  puts '[*] Deployed'
+end
+
+desc 'Build, minify and deploy'
+task all: [:prepare, :deploy]
