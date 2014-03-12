@@ -2,6 +2,10 @@ Install the dependencies:
 
     $ bundle
 
-See the tasks:
+Build site and minify the assets:
+
+    $ rake
+
+For more tasks:
 
     $ rake -T
