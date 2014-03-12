@@ -8,7 +8,7 @@ end
 
 desc 'Minify CSS'
 task :minify do
-  `node_modules/.bin/cleancss -o _site/css/main.css css/main.css`
+  `node_modules/.bin/cleancss -o _deploy/css/main.css _source/css/main.css`
   puts '[*] Minified CSS'
 end
 
