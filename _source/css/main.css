@@ -9,7 +9,7 @@ body {
 p { line-height: 1.5; }
 
 .container {
-  max-width: 740px;
+  max-width: 720px;
   margin: 40px auto;
   padding: 10px;
 }
