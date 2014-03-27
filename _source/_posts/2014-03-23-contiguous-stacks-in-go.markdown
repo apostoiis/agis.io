@@ -79,4 +79,4 @@ Even though contiguous stacks cause a trivial amount of memory fragmentation, be
 
 Go 1.3 is going to be a great release with a lot of [performance improvements](http://talks.golang.org/2014/go1.3.slide#7) and [other great things](http://talks.golang.org/2014/go1.3.slide#16) going on. I'm [looking forward](http://isgo1point3.outyet.org) to it.
 
-[Discuss this post on HackerNews.](https://news.ycombinator.com/item?id=7473029)
+[There's an interesting discussion going on in Reddit](http://www.reddit.com/r/rust/comments/21ffem/contiguous_stacks_in_go/).
