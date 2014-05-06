@@ -166,3 +166,7 @@ code {
 .highlight .vg { color: #008080 }
 .highlight .vi { color: #008080 }
 .highlight .il { color: #009999 }
+
+@media only screen and (max-width: 640px) {
+  h1 { font-size: 2em; }
+ }
