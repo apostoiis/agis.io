@@ -62,11 +62,11 @@ Due to the lack of such knowledge the garbage collector has to conservatively co
 
 When copying stacks however, such cases *have* to be avoided and only real pointers should be taken into account when re-adjusting.
 
-[Work was done though](https://docs.google.com/document/d/1lyPIbmsYbXnpNj57a261hgOYVpNRcgydurVQIyZOz_o/pub) and [information about live stack pointers](https://docs.google.com/document/d/13v_u3UrN2pgUtPnH4y-qfmlXwEEryikFu0SQiwk35SA/pub) is now embedded in the binaries and is available to the runtime. This means not only that the collector in 1.3 can [*precisely*](http://talks.golang.org/2014/go1.3.slide#4) stack data but re-adjusting stack pointers is now possible.
+[Work was done though](https://docs.google.com/document/d/1lyPIbmsYbXnpNj57a261hgOYVpNRcgydurVQIyZOz_o/pub) and [information about live stack pointers](https://docs.google.com/document/d/13v_u3UrN2pgUtPnH4y-qfmlXwEEryikFu0SQiwk35SA/pub) is now embedded in the binaries and is available to the runtime. This means not only that the collector in 1.3 can [*precisely*](http://talks.golang.org/2014/go1.3.slide#4) collect stack data but re-adjusting stack pointers is now possible.
 
 The initial stack size will be conservatively set to 4kb in 1.3 but will probably be further reduced in 1.4. As for the shrinking strategy, when the collector runs, stacks using less than 1/4 of their size will be shrinked by half.
 
-Even though contiguous stacks cause a trivial amount of memory fragmentation, benchmarks comparing both implementations using `json` and `html/template` show nice performance improvements.
+Even though contiguous stacks cause a trivial amount of memory fragmentation, benchmarks comparing both implementations using `json` and `html/template` show some nice performance improvements.
 
 ![json benchmark contiguous vs segmented stacks](/assets/json-benchmark.png)
 ![html/template benchmark contiguous vs segmented stacks](/assets/html-benchmark.png)
