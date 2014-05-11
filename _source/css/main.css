@@ -169,4 +169,18 @@ code {
 
 @media only screen and (max-width: 640px) {
   h1 { font-size: 2em; }
- }
+
+  #posts li {
+ 	 text-align: center;
+	 margin-bottom: 25px;
+  }
+  #posts .title { float: none; }
+  #posts .date {
+	  display: block;
+	  float: none;
+  }
+
+  hr, #post hr { margin: 40px auto; }
+
+  #post h1 { font-size: 1.8em; }
+}
