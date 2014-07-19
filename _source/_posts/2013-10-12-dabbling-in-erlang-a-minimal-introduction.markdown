@@ -251,7 +251,7 @@ Let's try passing our `is_what` function that we defined earlier:
 {% highlight erlang %}
 > F = fun(X) -> is_what(X) end.
 #Fun<erl_eval.6.17052888>
-> map(I, [1,2,3]).
+> map(F, [1,2,3]).
 [odd,even,odd]
 {% endhighlight %}
 
