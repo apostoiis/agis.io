@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Rails Tips - part 1"
+title: "Rails tips, part 1"
 date: 2012-05-24 16:19
 ---
 
