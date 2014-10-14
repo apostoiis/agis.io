@@ -20,7 +20,7 @@ a {
 }
 
 #posts ul {
-  list-style: none;
+  list-style-type: none;
   margin: 0;
   padding: 0;
   line-height: 2;
@@ -90,6 +90,10 @@ code {
   background: #efefef;
   font-size: 16px;
   margin: 0 2px;
+}
+
+code:not([class]) {
+  padding: 0 5px;
 }
 
 #credits { text-align: center }
