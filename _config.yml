@@ -1,4 +1,4 @@
 name: Agis Anastasopoulos
-pygments: true
+highlighter: pygments
 source: _source
 destination: _deploy
