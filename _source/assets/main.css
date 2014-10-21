@@ -10,8 +10,7 @@ p { line-height: 1.5; }
 
 .container {
   max-width: 720px;
-  margin: 40px auto;
-  padding: 10px;
+  margin: 45px auto;
 }
 
 a {
@@ -19,6 +18,7 @@ a {
   text-decoration: none;
 }
 
+#posts { margin-bottom: 90px }
 #posts ul {
   list-style-type: none;
   margin: 0;
@@ -38,7 +38,7 @@ hr {
   border: 0;
   border-top: 1px solid #eee;
   width: 40%;
-  margin: 60px auto;
+  margin: 50px auto;
 }
 
 
@@ -53,7 +53,7 @@ h1, h2 {
 h1 { font-size: 3.3em; }
 h2 { font-size: 1.6em; }
 
-footer {
+#footer {
   font-size: 14px;
   color: #999;
   text-align: center;
@@ -62,7 +62,7 @@ footer {
 
 #post h1 {
   font-size: 2.5em;
-  margin: 20px 0;
+  margin: 30px 0;
 }
 #post hr { margin: 60px auto; }
 #post .date {
@@ -70,12 +70,9 @@ footer {
   text-align: center;
   font-size: 18px;
 }
-#post h2 { margin: 1.7em 0 1.5em 0; }
-
-.back {
-  text-align: center;
-  font-size: 1em;
-}
+#post h2 { margin: 1.9em 0 1em 0 }
+.post-body { margin-top: 70px }
+.back { text-align: center }
 
 blockquote {
   border-left: 4px solid #999;
@@ -113,12 +110,10 @@ code:not([class]) {
 .highlight code { padding-left: 0; margin-left: 0 }
 .highlight .c { color: #999988; font-style: italic }
 .highlight .err { color: #a61717; background-color: #e3d2d2 }
-.highlight .k { font-weight: bold }
-.highlight .o { font-weight: bold }
 .highlight .cm { color: #999988; font-style: italic }
 .highlight .cp { color: #999999; font-weight: bold }
 .highlight .c1 { color: #999988; font-style: italic }
-.highlight .cs { color: #999999; font-weight: bold; font-style: italic }
+.highlight .cs { color: #999999; font-style: italic }
 .highlight .gd { color: #000000; background-color: #ffdddd }
 .highlight .gd .x { color: #000000; background-color: #ffaaaa }
 .highlight .ge { font-style: italic }
@@ -131,45 +126,28 @@ code:not([class]) {
 .highlight .gs { font-weight: bold }
 .highlight .gu { color: #aaaaaa }
 .highlight .gt { color: #aa0000 }
-.highlight .kc { font-weight: bold }
-.highlight .kd { font-weight: bold }
-.highlight .kp { font-weight: bold }
-.highlight .kr { font-weight: bold }
-.highlight .kt { color: #445588; font-weight: bold }
+.highlight .kc, .kd, .kp, .kr, .kt, .nc, .ne, .nf, .cs, .ow, .cp, .k, .o  { font-weight: bold }
+.highlight .kt { color: #445588; }
 .highlight .m { color: #009999 }
 .highlight .s { color: #d14 }
 .highlight .na { color: #008080 }
 .highlight .nb { color: #0086B3 }
-.highlight .nc { color: #445588; font-weight: bold }
+.highlight .nc { color: #445588 }
 .highlight .no { color: #008080 }
 .highlight .ni { color: #800080 }
-.highlight .ne { color: #990000; font-weight: bold }
-.highlight .nf { color: #990000; font-weight: bold }
+.highlight .ne { color: #990000 }
+.highlight .nf { color: #990000 }
 .highlight .nn { color: #555555 }
 .highlight .nt { color: #000080 }
 .highlight .nv { color: #008080 }
-.highlight .ow { font-weight: bold }
 .highlight .w { color: #bbbbbb }
-.highlight .mf { color: #009999 }
-.highlight .mh { color: #009999 }
-.highlight .mi { color: #009999 }
-.highlight .mo { color: #009999 }
-.highlight .sb { color: #d14 }
-.highlight .sc { color: #d14 }
-.highlight .sd { color: #d14 }
-.highlight .s2 { color: #d14 }
-.highlight .se { color: #d14 }
-.highlight .sh { color: #d14 }
-.highlight .si { color: #d14 }
-.highlight .sx { color: #d14 }
+.highlight .mf, .mh, .mi, .mo, .il { color: #009999 }
+.highlight .sb, .sc, .sd, .s2, .se, .sh, .si, .sx { color: #d14 }
 .highlight .sr { color: #009926 }
 .highlight .s1 { color: #d14 }
 .highlight .ss { color: #990073 }
 .highlight .bp { color: #999999 }
-.highlight .vc { color: #008080 }
-.highlight .vg { color: #008080 }
-.highlight .vi { color: #008080 }
-.highlight .il { color: #009999 }
+.highlight .vc, .vg, .vi { color: #008080 }
 
 @media only screen and (max-width: 640px) {
   h1 { font-size: 2em; }
