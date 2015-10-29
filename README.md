@@ -3,10 +3,10 @@ Install the dependencies:
     $ brew install npm
     $ bundle
 
-Build site and minify the assets:
+Build the site and minify the assets:
 
-    $ rake
+    $ bundle exec rake
 
 For more tasks:
 
-    $ rake -T
+    $ bundle exec rake -T
