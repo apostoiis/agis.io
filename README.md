@@ -1,12 +1,26 @@
+## Development
+
+Clone the repo:
+
+```shell
+$ git clone --recursive https://github.com/agis-/agis.io.git
+```
+
 Install the dependencies:
 
-    $ brew install npm
-    $ bundle
+```shell
+$ bundle
+$ brew install npm && npm install cleancss # only needed for minifying assets
+```
 
 Build the site and minify the assets:
 
-    $ bundle exec rake
+```shell
+$ bundle exec rake
+```
 
 For more tasks:
 
-    $ bundle exec rake -T
+```shell
+$ bundle exec rake -T
+```
