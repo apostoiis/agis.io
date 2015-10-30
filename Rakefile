@@ -8,7 +8,7 @@ end
 
 desc 'Minifies the stylesheets'
 task :minify_css do
-  `node_modules/.bin/cleancss -o _deploy/assets/m.css _source/assets/m.css`
+  `node_modules/.bin/cleancss -o _deploy/assets/m.css _deploy/assets/m.css`
   puts '[*] Minified CSS'
 end
 
