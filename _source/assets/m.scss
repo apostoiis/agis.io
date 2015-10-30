@@ -17,6 +17,7 @@ p {
 .container {
   max-width: 720px;
   margin: 45px auto;
+  padding: 6px;
 }
 
 a {
@@ -65,6 +66,10 @@ code {
   &:not([class]) {
     padding: 2px 5px;
   }
+}
+
+img {
+  max-width: 100%;
 }
 
 .posts {
