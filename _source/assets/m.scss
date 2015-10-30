@@ -1,3 +1,6 @@
+---
+---
+
 body {
   font-family: 'Source Sans Pro', serif;
   font-size: 20px;
@@ -7,7 +10,9 @@ body {
   padding: 0 10px;
 }
 
-p { line-height: 1.5; }
+p {
+  line-height: 1.5;
+}
 
 .container {
   max-width: 720px;
@@ -19,22 +24,6 @@ a {
   text-decoration: none;
 }
 
-#posts { margin-bottom: 90px }
-#posts ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  line-height: 2;
-}
-#posts .title { float: left; }
-#posts .date {
-  font-size: 14px;
-  text-transform: uppercase;
-  float: right;
-  color: #999;
-}
-#posts li { clear: both; }
-
 hr {
   border: 0;
   border-top: 1px solid #eee;
@@ -42,38 +31,22 @@ hr {
   margin: 50px auto;
 }
 
-
-h1, h2 {
+h1,
+h2 {
   font-family: "Poly", serif;
   font-weight: 100;
   text-align: center;
   color: #3f3f3f;
-  margin: 0 0 35px 0;
+  margin: 0 0 35px;
 }
 
-h1 { font-size: 3.3em; }
-h2 { font-size: 1.6em; }
-
-#footer {
-  font-size: 14px;
-  color: #999;
-  text-align: center;
-  margin-bottom: 20px;
+h1 {
+  font-size: 3.3em;
 }
 
-#post h1 {
-  font-size: 2.5em;
-  margin: 30px 0;
+h2 {
+  font-size: 1.6em;
 }
-#post hr { margin: 60px auto; }
-#post .date {
-  color: #999;
-  text-align: center;
-  font-size: 18px;
-}
-#post h2 { margin: 1.9em 0 1em 0 }
-.post-body { margin-top: 70px }
-.back { text-align: center }
 
 blockquote {
   border-left: 4px solid #999;
@@ -88,18 +61,86 @@ code {
   background: #efefef;
   font-size: 16px;
   margin: 0 2px;
+
+  &:not([class]) {
+    padding: 2px 5px;
+  }
 }
 
-code:not([class]) {
-  padding: 2px 5px;
+.posts {
+  margin-bottom: 90px;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    line-height: 2;
+  }
+
+  li {
+    clear: both;
+  }
+
+  .title {
+    float: left;
+  }
+
+  .date {
+    font-size: 14px;
+    text-transform: uppercase;
+    float: right;
+    color: #999;
+  }
 }
 
-#credits { text-align: center }
+.footer {
+  font-size: 14px;
+  color: #999;
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-.twitter { 
+.post {
+
+  h1 {
+    font-size: 2.5em;
+    margin: 30px 0;
+  }
+
+  hr {
+    margin: 60px auto;
+  }
+
+  .date {
+    color: #999;
+    text-align: center;
+    font-size: 18px;
+  }
+
+  h2 {
+    margin: 1.9em 0 1em;
+  }
+}
+
+.post-body {
+  margin-top: 70px;
+}
+
+.back {
+  text-align: center;
+}
+
+.credits {
+  text-align: center;
+}
+
+.twitter {
   display: inline;
   vertical-align: -3px;
 }
+
+
+// Highlight styles
 
 .highlight {
   font-size: 13px;
@@ -150,20 +191,37 @@ code:not([class]) {
 .highlight .bp { color: #999999 }
 .highlight .vc, .vg, .vi { color: #008080 }
 
+
+// Styles for mobile viewport under 640px
+
 @media only screen and (max-width: 640px) {
-  h1 { font-size: 2em; }
-
-  #posts li {
- 	 text-align: center;
-	 margin-bottom: 25px;
-  }
-  #posts .title { float: none; }
-  #posts .date {
-	  display: block;
-	  float: none;
+  h1 {
+    font-size: 2em;
   }
 
-  hr, #post hr { margin: 40px auto; }
+  .posts {
 
-  #post h1 { font-size: 1.8em; }
+    li {
+      text-align: center;
+  	  margin-bottom: 25px;
+    }
+
+    .title {
+      float: none;
+    }
+
+    .date {
+  	  display: block;
+  	  float: none;
+    }
+  }
+
+  hr,
+  .post hr {
+    margin: 40px auto;
+  }
+
+  .post h1 {
+    font-size: 1.8em;
+  }
 }
